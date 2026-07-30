@@ -1,0 +1,35 @@
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 环境变量文件（重点！不要上传密钥）
+.env
+.env.local
+.env.dev
+
+# IDE 配置
+.vscode/
+.idea/
+*.swp
+*.sublime-project
+
+# 日志、临时文件
+*.log
+*.tmp
+*.bak
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# Markdown图片（可选，如果你单独管理图片目录）
+# assets/temp/
+
+PythonNote\LeedCode\test.py
