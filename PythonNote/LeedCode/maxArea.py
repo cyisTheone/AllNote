@@ -13,6 +13,7 @@
 输出：1
 
 """
+from typing import List
 
 
 class Solution:
