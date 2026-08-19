@@ -41,6 +41,7 @@ class Solution:
         """
         if not root:
             return 0
+        # 分别计算左右子树的最大深度，取最大值返回
         max_left = self.maxDepth1(root.left)
         max_right = self.maxDepth1(root.right)
         return max(max_left, max_right) + 1

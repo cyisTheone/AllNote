@@ -28,7 +28,7 @@ def step_calc(light):
 
 def light_color(lights, times):
     # 定义哈希表，记录历史状态, 每秒一个状态
-    history_status = []
+    history_status = [] # 注意初始状态不要入环，走到某一个状态后后续的才有可能入环
 
     new_stat = lights
     for t in range(times):

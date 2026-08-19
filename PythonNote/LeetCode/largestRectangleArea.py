@@ -41,14 +41,12 @@ class Solution:
 
         for i in range(n):
 
-            # while循环处理，要入栈的元素比栈顶小，栈顶弹出，要入栈的元素可能还是比新的栈顶元素小，继续弹出，并计算面积
+            # while循环处理，要入栈的元素比栈顶小，栈顶弹出，要入栈的元素可能还是比新的栈顶元素小，继续弹出，并计算弹出元素的面积
             while stack and heights[i] < heights[stack[-1]]:
                 curr = stack.pop()
-                r = i  # 有边界就是此时的i
-                l = stack[-1] if stack else -1  # 左边界就是新的栈顶
-                area = heights[curr] * (
-                        r - l - 1
-                )  # 宽度是r-l-1，因为左右是宽度的边界，但不含该边界（左右都比当前高度小，不可包含）
+                r = i  # 对于此时的curr右边界就是此时的i
+                l = stack[-1] if stack else -1  # 左边界就是新的栈顶,栈为空说明左边没有元素，赋值为-1
+                area = heights[curr] * (r - l - 1)  # 宽度是r-l-1，因为左右是宽度的边界，但不含该边界（左右都比当前高度小，不可包含）
                 ans = max(ans, area)
 
             stack.append(i)

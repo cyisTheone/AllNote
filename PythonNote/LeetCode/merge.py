@@ -22,6 +22,7 @@
 贪心算法
  
 """
+from typing import List
 
 
 class Solution:
@@ -31,19 +32,19 @@ class Solution:
 
         # 定义一个空数组保存答案
         ans = []
-        
+
         for each in intervals:
             # 遍历每个数组，判断数组的左边界是否比已合并的数组的最后一个的右边界大，大说明不相交，直接追加这个数组
             if not ans or each[0] > ans[-1][1]:
                 ans.append(each)
-            
             # 否则的话，需要更新已合并数组的右边界，取当前元素和ans数组最后一个元素右边界的最大值
             else:
                 ans[-1][1] = max(each[1], ans[-1][1])
         return ans
 
-    if __name__ == "__main__":
-        solution = Solution()
-        intervals = [[1,3],[2,6],[8,10],[15,18]]
-        result = solution.merge(intervals)
-        print(result)  # Output: [[1,6],[8,10],[15,18]]
+
+if __name__ == "__main__":
+    solution = Solution()
+    intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]
+    result = solution.merge(intervals)
+    print(result)  # Output: [[1,6],[8,10],[15,18]]

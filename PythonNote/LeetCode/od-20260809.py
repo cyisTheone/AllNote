@@ -23,13 +23,15 @@ decays [i] 表示第 i 个菌子的衰减速度
 def main(count, total, values, decays):
     limit = total / 5
 
-    full = 1 << count
+    full = 1 << count # 表示2的count次方
     dp = [-1] * full
 
+    # 初始化全0收益为0
     dp[0] = 0
     best = 0
 
     for mask in range(full):
+        # 下面的循环会更新dp中某个mask的状态，需要判断
         if dp[mask] < 0:
             continue
 
@@ -44,17 +46,15 @@ def main(count, total, values, decays):
 
         # 用当前状态去循环每一个菌子，尝试加进来加工，
         for i in range(count):
-            # 当前菌子已经加工过，则跳过
+            # 右移i位和 1 做按位与, 都为1，说明i这个菌子加工过，需要跳过，  011 >> 1 = 01, 01&1 = 1, 代表第二个菌子加工过， 011>>2=0, 0&1=0,  代表第三个菌子加没有工过
             if mask >> i & 1:
                 continue
-            # 当前菌子的剩余价值
+            # 当前菌子的剩余价值，如果剩余价值小于0，跳过加工
             gain = values[i] - decays[i] * wait
-
-            # 剩余价值小于0，跳过加工
             if gain <= 0:
                 continue
 
-            #  都符合条件，开始加工，计算新的价值， 构造新状态, 在mask的基础上将第i位置为1
+            # 都符合条件，开始加工，计算新的价值， 构造新状态, 在mask的基础上将第i位置为1
             new_mask = mask | (1 << i)
             """
             代码解读
@@ -67,8 +67,8 @@ def main(count, total, values, decays):
             new_mask=0b111，代表现在选了 0,1,2 三个菌子。
             """
             # 更新状态收益
-            if dp[mask] + gain > dp[new_mask]:
-                dp[new_mask] = dp[mask] + gain
+            dp[new_mask] = max(dp[new_mask], dp[mask] + gain)
+
     return best
 
 

@@ -42,9 +42,11 @@ def cengxu(root):
         return
     dq = deque([root])
     while dq:
+        # 从左向右依次弹出节点处理
         for _ in range(len(dq)):
             curr = dq.popleft()
             print(curr.val)
+            # 判断弹出的节点是否有子节点， 有的话，按左、右的顺序加入到队列
             if curr.left:
                 dq.append(curr.left)
             if curr.right:

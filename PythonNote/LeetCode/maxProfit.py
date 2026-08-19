@@ -24,10 +24,6 @@ from ast import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        
-        profit = 0
-        n = len(prices)
-
         # 定义当前最低价
         min_price = prices[0]
         profit = 0
@@ -36,9 +32,10 @@ class Solution:
             # 记录当前之前的最低价
             min_price = min(min_price, i)
             # 记录当天卖出的利润的最大值
-            profit = max(profit, i-min_price)
+            profit = max(profit, i - min_price)
 
         return profit
+
 
 if __name__ == "__main__":
     solution = Solution()

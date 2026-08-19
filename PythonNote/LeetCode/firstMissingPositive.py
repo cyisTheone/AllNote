@@ -22,6 +22,8 @@ leetcode 41
 解释：最小的正数 1 没有出现。
 """
 import collections
+from typing import List
+
 
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
@@ -47,4 +49,4 @@ if __name__ == "__main__":
     solution = Solution()
     nums =[3,4,-1,1]
     result = solution.firstMissingPositive(nums)
-    print(result)  # Output: 3
+    print(result)  # Output: 2

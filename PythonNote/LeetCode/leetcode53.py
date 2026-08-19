@@ -57,6 +57,6 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    nums = [-2, -1]
+    nums = [-2,1,-3,4,-1,2,1,-5,4]
     result = solution.maxSubArray1(nums)
     print(result)  # Output: 6
