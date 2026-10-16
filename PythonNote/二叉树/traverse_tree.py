@@ -47,7 +47,7 @@ def middle_traverse(root):
         # 外层循环开始弹出元素
         curr = stack.pop()
         print(curr.val, end=" ")
-        # 将当前节点的右节点赋值给curr，然后入栈（44行的while循环执行）
+        # 将当前节点的右节点赋值给curr，然后入栈（44行的while循环执行,继续寻找这个右节点的所有左孩子）
         curr = curr.right
 
 
