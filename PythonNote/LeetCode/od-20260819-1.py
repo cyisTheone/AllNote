@@ -55,7 +55,7 @@ def countLowPowerPeriods1(power, target, maxhour):
         # 起点不能早于 left，也不能早于 right-maxhour+1（限制最大长度）
         start_min = max(left, right - maxhour + 1)
         #  由于power数组为非复数，[l+1, r]的和始终小于等于[l,r]， 找到min_l之后，r-min_l+1就是以该r为右端点的所有数量
-        # 区间内总和具有单调性， 右负数，这题解法不适用
+        # 区间内总和具有单调性，如果有负数，这题解法不适用
         cnt = right - start_min + 1
         res += cnt
     return res
